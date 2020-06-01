@@ -10,6 +10,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisNode;
+import org.springframework.data.redis.connection.RedisPassword;
 import org.springframework.data.redis.connection.RedisSentinelConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -47,6 +48,8 @@ public class RedisCacheConfig {
             redisSentinelConfiguration.addSentinel(new RedisNode(ip.toString(),Integer.parseInt(node_port.toString())));
         });
         redisSentinelConfiguration.master(master);
+        RedisPassword password = RedisPassword.of("test@Ndol7849");
+		redisSentinelConfiguration.setPassword(password );
         return redisSentinelConfiguration;
     }
 

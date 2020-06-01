@@ -1,14 +1,5 @@
 spring:
   redis:
-    host: 127.0.0.1
-    port: 6001
-    jedis:
-      pool:
-        max-active: 300
-        max-idle: 8
-        min-idle: 0
-    database: 0
-    timeout: 5000
     sentinel:
       master: mymaster
-      nodes: 127.0.0.1:26000,127.0.0.1:26001,127.0.0.1:26002
+      nodes: 10.135.79.216:26379,10.135.79.216:26380,10.135.79.216:26381
